@@ -1,7 +1,0 @@
-#This says execute cat command and convert output in this variable
-VAR=$(cat list_of_IDs.txt)
-
-
-
-
-echo -e ${VAR} | while read -a F ; do wget -q -O - "https://www.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=${F[0]}&seq_start=${F[1]}&seq_stop=${F[2]}&rettype=fasta" >> output.fa ; done
