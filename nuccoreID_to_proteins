@@ -1,0 +1,17 @@
+#!/bin/bash
+
+VAR=$(cat $1)
+export NCBI_API_KEY=df74fca1f9d657fe6848fe688609a820ac08
+for i in ${VAR}
+	do 
+		elink -db nuccore -id  ${i} -target protein|efetch -format fasta>  ${i}.fa		
+	done
+#make that database
+
+VAR2=$(ls *.fa)
+
+for x in ${VAR2}
+	do
+		cat ${x}>>phage_database.fa
+
+	done
