@@ -15,12 +15,12 @@ pdfPath <- ". ./pdfs"
 
 ##Blast version
 #In here change genome/comparison names and files
-SAP40 <- read_dna_seg_from_genbank('Titus.gbk')
-RN6390 <- read_dna_seg_from_genbank('Mak.gb')
+gen1 <- read_dna_seg_from_genbank('variant1.gbk')
+gen2 <- read_dna_seg_from_genbank('variant2.gb')
 comp <- read_comparison_from_blast('WAPA2F13114-Alignment.txt')
-pdf("Titusvsmak.pdf",h=4, w=7)  #edit h for more distance between the genes
-plot_gene_map(dna_segs=list(SAP40, RN6390),comparisons=list(comp),
-              main="Titus vs Mak",
+pdf("variant1vsvariant2.pdf",h=4, w=7)  #edit h for more distance between the genes
+plot_gene_map(dna_segs=list(gen1, gen2),comparisons=list(comp),
+              main="variant1 vs variant2",
               gene_type="arrows",
               dna_seg_scale=TRUE, scale=FALSE,
               global_color_scheme = c("per_id", "increasing", "blue_red", 1))
